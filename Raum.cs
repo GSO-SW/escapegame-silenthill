@@ -7,7 +7,7 @@ using ExitGame;
 
 namespace ExitGame
 {
-    internal class Raum
+    public class Raum
     {
         
 
