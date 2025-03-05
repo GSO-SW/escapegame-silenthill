@@ -1,26 +1,45 @@
 ﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Das ist ein kleines Beispiel für ein (langweiliges) Exit Game. \nIhr könnt es besser, viel Spaß! ");
-Console.WriteLine("-----------------------------------------------------------------------");
+
+using ExitGame;
+
+Raum Werkstattraum = new Raum();
+Werkstattraum.Name = "Werkstattraum";
+Werkstattraum.Nr = 1;
+Werkstattraum.Access = true;
+Werkstattraum.CharAnwesend = true;
+Werkstattraum.ItemVorhanden = false;
+Werkstattraum.Zugang[0] = 2;
+Werkstattraum.Zugang[1] = 3;
+Werkstattraum.Zugang[2] = 4;
+
+Raum Buero = new Raum();
+Buero.Name = "Buero";
+Buero.Nr = 2;
+Buero.Access = true;
+Buero.CharAnwesend = false;
+Buero.ItemVorhanden = true;
+Buero.Gegenstaende[0] = "Schluessel";
+Buero.Zugang[0] = 1;
+
+Raum Toilette = new Raum();
+Toilette.Name = "Toilette";
+Toilette.Nr = 3;
+Toilette.Access = true;
+Toilette.CharAnwesend = false;
+Toilette.ItemVorhanden = false;
+Toilette.Zugang[0] = 1;
+
+Raum Lager = new Raum();
+Lager.Name = "Lager";
+Lager.Nr = 4;
+Lager.Access = false;
+Lager.CharAnwesend = false;
+Lager.ItemVorhanden = true;
+Lager.Gegenstaende[0] = "Reifen";
+Lager.Zugang[0] = 1;
 
 
-Console.WriteLine("Geisterspiel");
-int punkte = 0;
-bool gameover = false;
-Random random = new Random();
-while (gameover == false)
-{
-    Console.WriteLine("Hinter einer Tür verbirgt sich ein Geist.\nWelche Tür wählst du? 1, 2 oder 3?");
-    int tuer = Convert.ToInt32(Console.ReadLine());
-    int geisterTuer = random.Next(1, 4);
-    if (tuer == geisterTuer)
-    {
-        Console.WriteLine("Game over! Hier ist ein Geist!");
-        Console.WriteLine("Deine Punkte: {0}", punkte);
-        gameover = true;
-    }
-    else
-    {
-        Console.WriteLine("Kein Geist gefunden!");
-        punkte = punkte + 1;
-    }
-}
+
+
+
+
