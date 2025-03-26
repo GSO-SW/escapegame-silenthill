@@ -40,7 +40,7 @@
               "RelativeDocumentMoniker": "Startmenue.cs",
               "ToolTip": "C:\\Users\\Daniel Jung\\source\\repos\\escapegame-silenthill\\Startmenue.cs*",
               "RelativeToolTip": "Startmenue.cs*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEoAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAADMAAAAAAAAAAAAgwFEAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-25T16:15:49.692Z",
               "EditorCaption": ""
@@ -51,12 +51,11 @@
               "Title": "Raum.cs",
               "DocumentMoniker": "C:\\Users\\Daniel Jung\\source\\repos\\escapegame-silenthill\\Raum.cs",
               "RelativeDocumentMoniker": "Raum.cs",
-              "ToolTip": "C:\\Users\\Daniel Jung\\source\\repos\\escapegame-silenthill\\Raum.cs*",
-              "RelativeToolTip": "Raum.cs*",
+              "ToolTip": "C:\\Users\\Daniel Jung\\source\\repos\\escapegame-silenthill\\Raum.cs",
+              "RelativeToolTip": "Raum.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-25T16:15:45.25Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-25T16:15:45.25Z"
             },
             {
               "$type": "Document",
@@ -64,9 +63,9 @@
               "Title": "Spiel.cs",
               "DocumentMoniker": "C:\\Users\\Daniel Jung\\source\\repos\\escapegame-silenthill\\Spiel.cs",
               "RelativeDocumentMoniker": "Spiel.cs",
-              "ToolTip": "C:\\Users\\Daniel Jung\\source\\repos\\escapegame-silenthill\\Spiel.cs*",
-              "RelativeToolTip": "Spiel.cs*",
-              "ViewState": "AgIAAGAAAAAAAAAAAAAqwIEAAAABAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\Daniel Jung\\source\\repos\\escapegame-silenthill\\Spiel.cs",
+              "RelativeToolTip": "Spiel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-25T07:01:10.472Z",
               "EditorCaption": ""
@@ -77,12 +76,11 @@
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\Daniel Jung\\source\\repos\\escapegame-silenthill\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\Daniel Jung\\source\\repos\\escapegame-silenthill\\Program.cs*",
-              "RelativeToolTip": "Program.cs*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAPAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\Daniel Jung\\source\\repos\\escapegame-silenthill\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-19T18:47:43.165Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-19T18:47:43.165Z"
             }
           ]
         }

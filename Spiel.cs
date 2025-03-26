@@ -39,25 +39,30 @@ namespace ExitGame
             {
                 Console.Clear(); // Bildschirm löschen
                 Console.WriteLine("\nDu bist im " + aktuellerRaum.Name + ".");
-                Console.WriteLine("Verfügbare Räume: ");
+                Console.WriteLine("\nVerfügbare Räume:");
+                Console.WriteLine("======================");
                 foreach (var raum in aktuellerRaum.Zugang)
                 {
-                    Console.WriteLine(raum.Nr + ". " + raum.Name);
+                    Console.WriteLine($"| {raum.Nr}. {raum.Name,-15} |");
                 }
+                Console.WriteLine("======================");
 
                 if (aktuellerRaum == buero && !schluesselGefunden)
                 {
+                    Console.WriteLine("");
                     Console.WriteLine("Du hast den Schlüssel für das Lager gefunden!");
                     schluesselGefunden = true;
                 }
 
                 if (aktuellerRaum == toilette && !schluesselGefunden)
                 {
-                    Console.WriteLine("Ein verletzter Mann flüstert: 'Die Reifen... sie sind im Lager...'");
+                    Console.WriteLine("");
+                    Console.WriteLine("Ein verletzter, obdachloser alter Mann flüstert: 'Die Reifen... sie sind im Lager...'");
                 }
 
                 if (aktuellerRaum == lager && !schluesselGefunden)
                 {
+                    Console.WriteLine("");
                     Console.WriteLine("Das Lager ist verschlossen! Du brauchst einen Schlüssel.");
                 }
 
