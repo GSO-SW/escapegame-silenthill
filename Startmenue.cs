@@ -10,7 +10,7 @@ namespace ExitGame
     {
         public void MenueAnzeigen()
         {
-            Raum Werkstattraum = new Raum();
+            /*Raum Werkstattraum = new Raum();
             Werkstattraum.Name = "Werkstattraum";
             Werkstattraum.Nr = 1;
             Werkstattraum.Access = true;
@@ -44,11 +44,10 @@ namespace ExitGame
             Lager.CharAnwesend = false;
             Lager.ItemVorhanden = true;
             Lager.Gegenstaende[0] = "Reifen";
-            Lager.Zugang[0] = 1;
+            Lager.Zugang[0] = 1;*/
 
             while (true)
             {
-                Console.WriteLine("");
                 Console.WriteLine("Silent Hill: Escape Room Game");
                 Console.WriteLine("(Produziert von Daniel J. Philipp J. Kevin K. und Nico F.)");
                 Console.WriteLine("");
@@ -61,12 +60,13 @@ namespace ExitGame
                 switch (auswahl)
                 {
                     case "1":
-                        Spiel.Spielstart();
+                        Werkstatt.Spielstart();
                         break;
                     case "2":
                         return;
                     default:
                         Console.WriteLine("Ungültige Auswahl. Bitte versuchen Sie es erneut.");
+                        Console.Clear();
                         break;
                 }
             }
