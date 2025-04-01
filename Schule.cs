@@ -1,36 +1,57 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace ExitGame
 {
-    internal class Spiel
+    internal class Schule
     {
         public static void Spielstart()
         {
             Console.Clear();
-            Console.WriteLine("Sie haben die Werkstatt betreten");
-            Console.WriteLine("Sie befinden sich im Werkstattraum");
-
-            // Räume definieren
-            Raum werkstattraum = new Raum("Werkstattraum", 1, true, true, false);
-            Raum buero = new Raum("Büro", 2, true, false, true);
-            Raum toilette = new Raum("Toilette", 3, true, false, false);
-            Raum lager = new Raum("Lager", 4, false, false, true);
+            Console.WriteLine("Sie haben die Schule betreten");
+            Console.WriteLine("\nSie befinden sich im Flur");
+            Console.ReadKey();
+        }
+            /*
+            // Räume definieren (Name, Nr, Betreten, Charakter, Items)
+            Raum flur = new Raum("Flur", 1, true, true, false);
+            Raum klassenraumA = new Raum("Klassenraum A", 2, true, false, false);
+            Raum klassenraumB = new Raum("Klassenraum B", 3, true, false, false);
+            Raum klassenraumC = new Raum("Klassenraum C", 4, true, false, false);
+            Raum klassenraumD = new Raum("Klassenraum D", 5, true, false, false);
+            Raum musikraum = new Raum("Musikraum", 6, true, false, false);
+            Raum umkleide = new Raum("Umkleide", 7, true, false, false);
+            Raum chemieraum = new Raum("Chemieraum", 8, true, false, false);
 
             // Zugänge definieren
-            werkstattraum.Zugang.Add(buero);
-            werkstattraum.Zugang.Add(toilette);
-            werkstattraum.Zugang.Add(lager);
+            flur.Zugang.Add(klassenraumA);
+            flur.Zugang.Add(klassenraumB);
+            flur.Zugang.Add(klassenraumC);
+            flur.Zugang.Add(klassenraumD);
+            flur.Zugang.Add(musikraum);
+            flur.Zugang.Add(umkleide);
+            flur.Zugang.Add(chemieraum);
 
-            buero.Zugang.Add(werkstattraum);
-            toilette.Zugang.Add(werkstattraum);
-            lager.Zugang.Add(werkstattraum);
+            klassenraumA.Zugang.Add(flur);
+
+            klassenraumB.Zugang.Add(flur);
+
+            klassenraumC.Zugang.Add(flur);
+
+            klassenraumD.Zugang.Add(flur);
+
+            musikraum.Zugang.Add(flur);
+
+            umkleide.Zugang.Add(flur);
+
+            chemieraum.Zugang.Add(flur);
 
             // Startwerte
-            Raum aktuellerRaum = werkstattraum;
+            Raum aktuellerRaum = flur;
             bool levelBeendet = false;
             bool schluesselGefunden = false;
 
@@ -40,12 +61,12 @@ namespace ExitGame
                 Console.Clear(); // Bildschirm löschen
                 Console.WriteLine("\nDu bist im " + aktuellerRaum.Name + ".");
                 Console.WriteLine("\nVerfügbare Räume:");
-                Console.WriteLine("======================");
+                Console.WriteLine("┌────────────────────┐");
                 foreach (var raum in aktuellerRaum.Zugang)
                 {
                     Console.WriteLine($"| {raum.Nr}. {raum.Name,-15} |");
                 }
-                Console.WriteLine("======================");
+                Console.WriteLine("└────────────────────┘");
 
                 if (aktuellerRaum == buero && !schluesselGefunden)
                 {
@@ -110,7 +131,7 @@ namespace ExitGame
             }
             return null;
         }
-
+        */
         // Raum-Klasse
         class Raum
         {
