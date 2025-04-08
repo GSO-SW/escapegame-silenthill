@@ -14,13 +14,13 @@ namespace ExitGame
             Console.WriteLine("Sie haben die Werkstatt betreten");
             Console.WriteLine("Sie befinden sich im Werkstattraum");
 
-            // Räume definieren (Name, Nr, Betreten, Charakter, Items)
             Raum werkstattraum = new Raum("Werkstattraum", 1, true, true, false);
             Raum buero = new Raum("Büro", 2, true, false, true);
             Raum toilette = new Raum("Toilette", 3, true, false, false);
             Raum lager = new Raum("Lager", 4, false, false, true);
 
-            // Zugänge definieren
+            
+
             werkstattraum.Zugang.Add(buero);
             werkstattraum.Zugang.Add(toilette);
             werkstattraum.Zugang.Add(lager);
@@ -29,85 +29,105 @@ namespace ExitGame
             toilette.Zugang.Add(werkstattraum);
             lager.Zugang.Add(werkstattraum);
 
-            // Startwerte
             Raum aktuellerRaum = werkstattraum;
             bool levelBeendet = false;
             bool schluesselGefunden = false;
 
-            // Spiel-Loop
             while (!levelBeendet)
             {
-                Console.Clear(); // Bildschirm löschen
+                Console.Clear();
                 Console.WriteLine("Du bist im " + aktuellerRaum.Name + ".");
                 Console.WriteLine("\nVerfügbare Räume:");
-                Console.WriteLine("┌────────────────────┐");
+                Console.WriteLine("┌──────────────────────────────┐");
                 foreach (var raum in aktuellerRaum.Zugang)
                 {
-                    Console.WriteLine($"| {raum.Nr}. {raum.Name,-15} |");
+                    string raumName = raum == lager && !schluesselGefunden ? $"{raum.Name} (Verschlossen)" : raum.Name;
+                    Console.WriteLine($"| {raum.Nr}. {raumName,-25} |");
                 }
-                Console.WriteLine("└────────────────────┘");
+                Console.WriteLine("└──────────────────────────────┘");
 
                 if (aktuellerRaum == buero && !schluesselGefunden)
                 {
-                    Console.WriteLine("\nDu hast den Schlüssel für das Lager gefunden!");
-                    schluesselGefunden = true;
+                    Console.WriteLine("\nRätsel: Entschlüssle 'YPMADIR'");
+                    if (LoeseRaetsel("PYRAMID"))
+                    {
+                        schluesselGefunden = true;
+                    }
                 }
 
-                if (aktuellerRaum == toilette && !schluesselGefunden)
+                if (aktuellerRaum == toilette)
                 {
                     Console.WriteLine("\nEin verletzter, obdachloser alter Mann flüstert: 'Die Reifen... sie sind im Lager...'");
                 }
 
-                if (aktuellerRaum == lager && !schluesselGefunden)
-                {
-                    Console.WriteLine("\nDas Lager ist verschlossen! Du brauchst einen Schlüssel.");
-                }
-
-                // Spieler bewegt sich
-                Console.WriteLine("\nWohin möchtest du gehen? (Gib die Zahl des Raumes ein)");
-                string eingabe = Console.ReadLine();
-                if (!int.TryParse(eingabe, out int raumNr))
-                {
-                    Console.WriteLine("Ungültige Eingabe! Bitte gib eine Zahl ein.");
-                    continue;
-                }
-
-                Raum neuerRaum = BewegeSpieler(aktuellerRaum, raumNr, schluesselGefunden);
-                if (neuerRaum == null)
-                {
-                    Console.WriteLine("Ungültiger Raum! Bitte wähle eine gültige Zahl.");
-                    continue;
-                }
-                aktuellerRaum = neuerRaum;
-
-                // Spiel beenden, wenn das Lager erreicht wurde und der Schlüssel vorhanden ist
                 if (aktuellerRaum == lager && schluesselGefunden)
                 {
                     Console.Clear();
-                    Console.WriteLine("Sie haben das Lager betreten, die Reifen geholt und gehen nun zum Auto.");
-                    Console.WriteLine("\n(Beliebige Taste drücken!)");
+                    Console.WriteLine("Sie haben das Lager betreten und die Reifen geholt!");
+                    Console.WriteLine("(Beliebige Taste drücken)");
                     Console.ReadKey();
-
                     levelBeendet = true;
-
+                    Console.Clear();
+                    Console.WriteLine("Nächstes Level wird geladen.");
+                    System.Threading.Thread.Sleep(1000);
+                    Console.Clear();
+                    Console.WriteLine("Nächstes Level wird geladen..");
+                    System.Threading.Thread.Sleep(1000);
                     Console.Clear();
                     Console.WriteLine("Nächstes Level wird geladen...");
-                    System.Threading.Thread.Sleep(3000); // 3 Sekunden Wartezeit für den Übergang
+                    System.Threading.Thread.Sleep(1000);
                     Schule.Spielstart();
+                }
+
+                Console.WriteLine("\nWohin möchtest du gehen? (Nummer eingeben)");
+                if (int.TryParse(Console.ReadLine(), out int raumNr))
+                {
+                    if (raumNr == 4 && !schluesselGefunden)
+                    {
+                        Console.WriteLine("\nDas Lager ist verschlossen! Du benötigst einen Schlüssel.");
+                        Console.ReadKey();
+                        continue;
+                    }
+
+                    Raum neuerRaum = BewegeSpieler(aktuellerRaum, raumNr, lager, schluesselGefunden);
+                    if (neuerRaum != null)
+                    {
+                        aktuellerRaum = neuerRaum;
+                    }
+                    else
+                    {
+                        Console.WriteLine("\nUngültige Auswahl! Versuche es erneut.");
+                        Console.ReadKey();
+                    }
                 }
             }
         }
 
-        // Methode zum Bewegen des Spielers
-        static Raum BewegeSpieler(Raum aktuellerRaum, int raumNr, bool schluesselGefunden)
+        static bool LoeseRaetsel(string loesung)
+        {
+            while (true)
+            {
+                Console.WriteLine("\nGib die Lösung ein:");
+                if (Console.ReadLine().ToUpper() == loesung)
+                {
+                    Console.WriteLine("\nRichtig! Schlüssel erhalten.");
+                    return true;
+                }
+                else
+                {
+                    Console.WriteLine("\nFalsch. Versuche es erneut.");
+                }
+            }
+        }
+
+        static Raum BewegeSpieler(Raum aktuellerRaum, int raumNr, Raum lager, bool schluesselGefunden)
         {
             foreach (var raum in aktuellerRaum.Zugang)
             {
                 if (raum.Nr == raumNr)
                 {
-                    if (raum == raum.Zugang.Find(r => r.Nr == 4) && !schluesselGefunden)
+                    if (raum == lager && !schluesselGefunden)
                     {
-                        Console.WriteLine("Das Lager ist verschlossen! Du benötigst einen Schlüssel.");
                         return aktuellerRaum;
                     }
                     return raum;
@@ -116,7 +136,6 @@ namespace ExitGame
             return null;
         }
 
-        // Raum-Klasse
         class Raum
         {
             public string Name { get; set; }
