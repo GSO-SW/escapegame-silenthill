@@ -9,15 +9,15 @@ namespace ExitGame
 {
     internal class Schule
     {
+        // Einstiegspunkt des Spiels
         public static void Spielstart()
         {
-            Console.Clear();
+            Console.Clear(); // Bildschirm löschen
             Console.WriteLine("Sie haben die Schule betreten");
             Console.WriteLine("\nSie befinden sich im Flur");
-            Console.ReadKey();
-        }
-            /*
-            // Räume definieren (Name, Nr, Betreten, Charakter, Items)
+            Console.ReadKey(); // Spieler muss Taste drücken, um fortzufahren
+
+            // Räume im Spiel werden erstellt (Name, Raumnummer, Zugänglich?, Charakter vorhanden?, Item vorhanden?)
             Raum flur = new Raum("Flur", 1, true, true, false);
             Raum klassenraumA = new Raum("Klassenraum A", 2, true, false, false);
             Raum klassenraumB = new Raum("Klassenraum B", 3, true, false, false);
@@ -27,7 +27,7 @@ namespace ExitGame
             Raum umkleide = new Raum("Umkleide", 7, true, false, false);
             Raum chemieraum = new Raum("Chemieraum", 8, true, false, false);
 
-            // Zugänge definieren
+            // Verbindungen zwischen den Räumen herstellen (Zugänge)
             flur.Zugang.Add(klassenraumA);
             flur.Zugang.Add(klassenraumB);
             flur.Zugang.Add(klassenraumC);
@@ -36,112 +36,97 @@ namespace ExitGame
             flur.Zugang.Add(umkleide);
             flur.Zugang.Add(chemieraum);
 
+            // Jeder Raum führt zurück zum Flur
             klassenraumA.Zugang.Add(flur);
-
             klassenraumB.Zugang.Add(flur);
-
             klassenraumC.Zugang.Add(flur);
-
             klassenraumD.Zugang.Add(flur);
-
             musikraum.Zugang.Add(flur);
-
             umkleide.Zugang.Add(flur);
-
             chemieraum.Zugang.Add(flur);
 
-            // Startwerte
-            Raum aktuellerRaum = flur;
-            bool levelBeendet = false;
-            bool schluesselGefunden = false;
-
-            // Spiel-Loop
+            Raum aktuellerRaum = flur; // Der Spieler startet im Flur
+            bool levelBeendet = false; // Das Spiel ist noch nicht beendet
+            /*
+            bool klassenraumBschluesselGefunden = false;
+            bool klassenraumCschluesselGefunden = false;
+            bool klassenraumDschluesselGefunden = false;
+            bool musikraumschluesselGefunden = false;
+            bool chemieraumBschluesselGefunden = false;
+            */
+            // Haupt-Spiel-Loop: läuft so lange, bis das Level beendet wird
             while (!levelBeendet)
             {
-                Console.Clear(); // Bildschirm löschen
-                Console.WriteLine("\nDu bist im " + aktuellerRaum.Name + ".");
+                Console.Clear(); // Bildschirm leeren
+                Console.WriteLine("Du bist im " + aktuellerRaum.Name + ".");
                 Console.WriteLine("\nVerfügbare Räume:");
-                Console.WriteLine("┌────────────────────┐");
+                Console.WriteLine("┌──────────────────────────────┐");
+
+                // Zeige alle Räume an, die vom aktuellen Raum aus erreichbar sind
                 foreach (var raum in aktuellerRaum.Zugang)
-                {
-                    Console.WriteLine($"| {raum.Nr}. {raum.Name,-15} |");
-                }
-                Console.WriteLine("└────────────────────┘");
+                    foreach (var raum in aktuellerRaum.Zugang)
+                    {
+                 /*       string raumName = raum == lager && !schluesselGefunden ? $"{raum.Name} (Verschlossen)" : raum.Name;
+                 */       Console.WriteLine($"| {raum.Nr}. {raumName,-25} |");
+                    }
 
-                if (aktuellerRaum == buero && !schluesselGefunden)
-                {
-                    Console.WriteLine("");
-                    Console.WriteLine("Du hast den Schlüssel für das Lager gefunden!");
-                    schluesselGefunden = true;
-                }
+                Console.WriteLine("└──────────────────────────────┘");
 
-                if (aktuellerRaum == toilette && !schluesselGefunden)
-                {
-                    Console.WriteLine("");
-                    Console.WriteLine("Ein verletzter, obdachloser alter Mann flüstert: 'Die Reifen... sie sind im Lager...'");
-                }
-
-                if (aktuellerRaum == lager && !schluesselGefunden)
-                {
-                    Console.WriteLine("");
-                    Console.WriteLine("Das Lager ist verschlossen! Du brauchst einen Schlüssel.");
-                }
-
-                // Spieler bewegt sich
+                // Spieler gibt die Zahl des nächsten Raumes ein
                 Console.WriteLine("\nWohin möchtest du gehen? (Gib die Zahl des Raumes ein)");
                 string eingabe = Console.ReadLine();
+
+                // Prüfen, ob Eingabe eine gültige Zahl ist
                 if (!int.TryParse(eingabe, out int raumNr))
                 {
                     Console.WriteLine("Ungültige Eingabe! Bitte gib eine Zahl ein.");
-                    continue;
+                    Console.WriteLine("(Beliebige Taste drücken)");
+                    Console.ReadKey(); // Warte auf Tastendruck
+                    continue; // Zurück zum Anfang der Schleife
                 }
 
-                Raum neuerRaum = BewegeSpieler(aktuellerRaum, raumNr, schluesselGefunden);
+                // Versuche, den Spieler in einen neuen Raum zu bewegen
+                Raum neuerRaum = BewegeSpieler(aktuellerRaum, raumNr);
                 if (neuerRaum == null)
                 {
                     Console.WriteLine("Ungültiger Raum! Bitte wähle eine gültige Zahl.");
-                    continue;
+                    Console.WriteLine("(Beliebige Taste drücken)");
+                    Console.ReadKey();
+                    continue; // Zurück zur Auswahl
                 }
-                aktuellerRaum = neuerRaum;
 
-                // Spiel beenden, wenn das Lager erreicht wurde und der Schlüssel vorhanden ist
-                if (aktuellerRaum == lager && schluesselGefunden)
-                {
-                    Console.Clear();
-                    Console.WriteLine("Sie haben das Lager betreten, die Reifen geholt und gehen nun zum Auto.");
-                    levelBeendet = true;
-                }
+                // Wenn alles passt, bewege den Spieler in den neuen Raum
+                aktuellerRaum = neuerRaum;
             }
         }
 
-        // Methode zum Bewegen des Spielers
-        static Raum BewegeSpieler(Raum aktuellerRaum, int raumNr, bool schluesselGefunden)
+        // Methode zur Bewegung in einen neuen Raum anhand der Raumnummer
+        static Raum BewegeSpieler(Raum aktuellerRaum, int raumNr)
         {
             foreach (var raum in aktuellerRaum.Zugang)
             {
+                // Wenn Raumnummer stimmt, gib den Raum zurück
                 if (raum.Nr == raumNr)
                 {
-                    if (raum == raum.Zugang.Find(r => r.Nr == 4) && !schluesselGefunden)
-                    {
-                        Console.WriteLine("Das Lager ist verschlossen! Du benötigst einen Schlüssel.");
-                        return aktuellerRaum;
-                    }
                     return raum;
                 }
             }
+
+            // Wenn kein passender Raum gefunden wurde, gib null zurück
             return null;
         }
-        */
-        // Raum-Klasse
+
+        // Die Klasse "Raum" beschreibt einen Raum im Spiel
         class Raum
         {
-            public string Name { get; set; }
-            public int Nr { get; set; }
-            public bool Access { get; set; }
-            public bool CharAnwesend { get; set; }
-            public bool ItemVorhanden { get; set; }
-            public List<Raum> Zugang { get; set; }
+            public string Name { get; set; }            // Name des Raums (z. B. "Musikraum")
+            public int Nr { get; set; }                 // Nummer zur Identifizierung im Spiel
+            public bool Access { get; set; }            // Ist der Raum betretbar?
+            public bool CharAnwesend { get; set; }      // Ist eine Spielfigur/NPC im Raum?
+            public bool ItemVorhanden { get; set; }     // Gibt es ein Item im Raum?
+            public List<Raum> Zugang { get; set; }      // Liste der erreichbaren Räume von hier aus
 
+            // Konstruktor: erstellt einen Raum mit seinen Eigenschaften
             public Raum(string name, int nr, bool access, bool charAnwesend, bool itemVorhanden)
             {
                 Name = name;
@@ -149,7 +134,7 @@ namespace ExitGame
                 Access = access;
                 CharAnwesend = charAnwesend;
                 ItemVorhanden = itemVorhanden;
-                Zugang = new List<Raum>();
+                Zugang = new List<Raum>(); // Initialisiere leere Liste für Zugänge
             }
         }
     }
