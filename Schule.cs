@@ -15,8 +15,11 @@ namespace ExitGame
             Console.Clear(); // Bildschirm löschen
             Console.WriteLine("Sie haben die Schule betreten");
             Console.WriteLine("\nSie befinden sich im Flur");
-            Console.ReadKey(); // Spieler muss Taste drücken, um fortzufahren
-
+            Console.ReadKey();
+        }
+    }
+} // Spieler muss Taste drücken, um fortzufahren
+            /*
             // Räume im Spiel werden erstellt (Name, Raumnummer, Zugänglich?, Charakter vorhanden?, Item vorhanden?)
             Raum flur = new Raum("Flur", 1, true, true, false);
             Raum klassenraumA = new Raum("Klassenraum A", 2, true, false, false);
@@ -47,13 +50,13 @@ namespace ExitGame
 
             Raum aktuellerRaum = flur; // Der Spieler startet im Flur
             bool levelBeendet = false; // Das Spiel ist noch nicht beendet
-            /*
+            
             bool klassenraumBschluesselGefunden = false;
             bool klassenraumCschluesselGefunden = false;
             bool klassenraumDschluesselGefunden = false;
             bool musikraumschluesselGefunden = false;
             bool chemieraumBschluesselGefunden = false;
-            */
+            
             // Haupt-Spiel-Loop: läuft so lange, bis das Level beendet wird
             while (!levelBeendet)
             {
@@ -66,8 +69,8 @@ namespace ExitGame
                 foreach (var raum in aktuellerRaum.Zugang)
                     foreach (var raum in aktuellerRaum.Zugang)
                     {
-                 /*       string raumName = raum == lager && !schluesselGefunden ? $"{raum.Name} (Verschlossen)" : raum.Name;
-                 */       Console.WriteLine($"| {raum.Nr}. {raumName,-25} |");
+                          string raumName = raum == lager && !schluesselGefunden ? $"{raum.Name} (Verschlossen)" : raum.Name;
+                           Console.WriteLine($"| {raum.Nr}. {raumName,-25} |");
                     }
 
                 Console.WriteLine("└──────────────────────────────┘");
@@ -138,4 +141,4 @@ namespace ExitGame
             }
         }
     }
-}
+}*/
