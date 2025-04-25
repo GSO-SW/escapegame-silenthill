@@ -12,6 +12,7 @@ namespace ExitGame
         {
             Console.Title = "SILENT HILL - ESCAPE ROOM GAME";
             Console.ForegroundColor = ConsoleColor.DarkRed;
+            Thread.Sleep(3000);
 
             string[] titleArt = new string[]
             {
@@ -20,6 +21,8 @@ namespace ExitGame
                 @"  ███████ ██ ██      █████   ██ ██  ██    ██        ███████ ██ ██      ██       ",
                 @"       ██ ██ ██      ██      ██  ██ ██    ██        ██   ██ ██ ██      ██       ",
                 @"  ███████ ██ ███████ ███████ ██   ████    ██        ██   ██ ██ ███████ ███████  ",
+                @"                                                                                ",
+                @"E  S  C  A  P  E                  R  O  O  M                          G  A  M  E",
                 @"                                                                                ",
                 @"                             WELCOME TO SILENT HILL                             ",
                 @"                         A TEXT-BASED HORROR EXPERIENCE                         ",
@@ -37,10 +40,10 @@ namespace ExitGame
                 Thread.Sleep(120); // Grusel-Effekt
             }
 
-            Console.ForegroundColor = ConsoleColor.Gray;
+            Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("\n                                                                                ");
-            Console.WriteLine("     (Produziert von Daniel J. Philipp J. Kevin K. und Nico F.)");
-            Console.WriteLine("\n             Drücke eine Taste, um fortzufahren...");
+            Console.WriteLine("                      Drücke eine Taste, um fortzufahren...                     ");
+            Console.WriteLine("\n                                                                                ");
             Console.ResetColor();
             Console.ReadKey();
             Console.Clear();
@@ -52,7 +55,7 @@ namespace ExitGame
                 Console.WriteLine("  ███████ ██ ██      █████   ██ ██  ██    ██        ███████ ██ ██      ██       ");
                 Console.WriteLine("       ██ ██ ██      ██      ██  ██ ██    ██        ██   ██ ██ ██      ██       ");
                 Console.WriteLine("  ███████ ██ ███████ ███████ ██   ████    ██        ██   ██ ██ ███████ ███████  ");
-                Console.WriteLine("\nE  S  C  A  P  E                     R  O  O  M                       G  A  M  E");
+                Console.WriteLine("\nE  S  C  A  P  E                  R  O  O  M                          G  A  M  E");
                 Console.WriteLine();
                 Console.WriteLine("1. Spiel beginnen");
                 Console.WriteLine("2. Beenden");
