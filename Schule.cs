@@ -7,134 +7,442 @@ using System.Threading.Tasks;
 
 namespace ExitGame
 {
-    internal class Schule
+    public class Schule
     {
-        // Einstiegspunkt des Spiels
         public static void Spielstart()
         {
-            Console.Clear(); // Bildschirm löschen
-            Console.WriteLine("Sie haben die Schule betreten");
-            Console.WriteLine("\nSie befinden sich im Flur");
-            Console.ReadKey(); // Spieler muss Taste drücken, um fortzufahren
+            Console.Clear();
+            Console.WriteLine("Eine gespenstische Stille umgibt dich.");
+            Thread.Sleep(5000);
+            Console.WriteLine("\nAlles wirkt wie in der Zeit erstarrt.");
+            Thread.Sleep(5000);
+            Console.WriteLine("\nVerlassene Gänge.");
+            Thread.Sleep(5000);
+            Console.WriteLine("\nFlackernde Lichter tanzen an den Wänden.");
+            Thread.Sleep(5000);
+            Console.WriteLine("\nEine kalte Atmosphäre kriecht unter deine Haut.");
+            Thread.Sleep(5000);
+            Console.WriteLine("\nDu suchst nach Hinweisen in dieser scheinbar eingefrorenen Szenerie.");
+            Thread.Sleep(5000);
 
-            // Räume im Spiel werden erstellt (Name, Raumnummer, Zugänglich?, Charakter vorhanden?, Item vorhanden?)
+            Console.Clear();
+            Console.WriteLine("Die schwere Eingangstür fällt mit einem dumpfen Knall hinter dir ins Schloss.");
+            Thread.Sleep(5000);
+            Console.WriteLine("\nEin Klicken verrät.");
+            Thread.Sleep(5000);
+            Console.WriteLine("\nDu bist eingeschlossen.");
+            Thread.Sleep(5000);
+            Console.WriteLine("\nDein Handy zeigt keinen Empfang.");
+            Thread.Sleep(5000);
+            Console.WriteLine("\nDu rüttelst an der Tür.");
+            Thread.Sleep(5000);
+            Console.WriteLine("\nAber sie ist fest verschlossen.");
+            Thread.Sleep(5000);
+            Console.WriteLine("\nEs gibt keinen Weg zurück.");
+            Thread.Sleep(5000);
+            Console.WriteLine("\nNur du und dieser unheimliche endlose Flur.");
+            Thread.Sleep(5000);
+
+            // Räume werden erstellt mit Name, Nummer, begehbar, Charakter anwesend?, Item vorhanden?
             Raum flur = new Raum("Flur", 1, true, true, false);
-            Raum klassenraumA = new Raum("Klassenraum A", 2, true, false, false);
-            Raum klassenraumB = new Raum("Klassenraum B", 3, true, false, false);
-            Raum klassenraumC = new Raum("Klassenraum C", 4, true, false, false);
-            Raum klassenraumD = new Raum("Klassenraum D", 5, true, false, false);
-            Raum musikraum = new Raum("Musikraum", 6, true, false, false);
-            Raum umkleide = new Raum("Umkleide", 7, true, false, false);
-            Raum chemieraum = new Raum("Chemieraum", 8, true, false, false);
+            Raum klassenraumA = new Raum("Klassenraum A", 2, true, false, true);
+            Raum klassenraumB = new Raum("Klassenraum B", 3, false, false, false);
+            Raum musikraum = new Raum("Musikraum", 4, false, false, false);
+            Raum chemieraum = new Raum("Chemieraum", 5, false, false, false);
+            Raum klassenraumC = new Raum("Klassenraum C", 6, true, false, false);
+            Raum klassenraumD = new Raum("Klassenraum D", 7, true, false, false);
+            Raum umkleide = new Raum("Umkleide", 8, true, false, true);
+            Raum notausgang = new Raum("Notausgang", 9, false, false, false);
 
-            // Verbindungen zwischen den Räumen herstellen (Zugänge)
+            // Verbindungen
             flur.Zugang.Add(klassenraumA);
             flur.Zugang.Add(klassenraumB);
             flur.Zugang.Add(klassenraumC);
             flur.Zugang.Add(klassenraumD);
             flur.Zugang.Add(musikraum);
-            flur.Zugang.Add(umkleide);
             flur.Zugang.Add(chemieraum);
+            flur.Zugang.Add(umkleide);
 
-            // Jeder Raum führt zurück zum Flur
             klassenraumA.Zugang.Add(flur);
             klassenraumB.Zugang.Add(flur);
             klassenraumC.Zugang.Add(flur);
             klassenraumD.Zugang.Add(flur);
+
             musikraum.Zugang.Add(flur);
-            umkleide.Zugang.Add(flur);
+
             chemieraum.Zugang.Add(flur);
 
-            Raum aktuellerRaum = flur; // Der Spieler startet im Flur
-            bool levelBeendet = false; // Das Spiel ist noch nicht beendet
-            /*
-            bool klassenraumBschluesselGefunden = false;
-            bool klassenraumCschluesselGefunden = false;
-            bool klassenraumDschluesselGefunden = false;
-            bool musikraumschluesselGefunden = false;
-            bool chemieraumBschluesselGefunden = false;
-            */
-            // Haupt-Spiel-Loop: läuft so lange, bis das Level beendet wird
+            umkleide.Zugang.Add(flur);
+
+            chemieraum.Zugang.Add(notausgang);
+
+            bool levelBeendet = false;
+            bool schliessfachGeloest = false;
+            bool musikGeloest = false;
+            bool chemieGeloest = false;
+            bool tagebuchGeloest = false;
+
+            string notausgangsCode = "73920518";
+            Raum aktuellerRaum = flur;
+
             while (!levelBeendet)
             {
-                Console.Clear(); // Bildschirm leeren
+                Console.Clear();
+                Console.WriteLine($"Du bist im {aktuellerRaum.Name}.");
+
+                if (aktuellerRaum == klassenraumA && !schliessfachGeloest)
+                {
+                    Console.Clear();
+                    Console.WriteLine("Ein Schließfach steht halb offen.");
+                    Thread.Sleep(5000);
+                    Console.WriteLine("\nDoch das Schloss scheint blockiert.");
+                    Thread.Sleep(5000);
+                    Console.WriteLine("\nDu versuchst es zu öffnen, aber es hakt.");
+                    Thread.Sleep(5000);
+                    Console.WriteLine("\nEin kleiner zerknitterter Zettel steckt zwischen Tür und Rahmen:");
+                    Thread.Sleep(5000);
+                    Console.WriteLine("\n„Der Code ist das, was du nie vergisst – 4 Zahlen, eine Erinnerung“.");
+                    Thread.Sleep(5000);
+                    Console.WriteLine("\nDu grübelst über mögliche Erinnerungen nach.");
+                    Thread.Sleep(5000);
+                    Console.WriteLine("\n\nCode Eingeben:");
+                    string eingabe = Console.ReadLine();
+                    if (eingabe == "4815")
+                    {
+                        Console.WriteLine("\nDas Schließfach klickt leise und springt auf.");
+                        Thread.Sleep(5000);
+                        Console.WriteLine("\nIm Inneren liegt ein alter, rostige Schlüssel.");
+                        Thread.Sleep(5000);
+                        Console.WriteLine("\nEr scheint zu einem anderen Raum zu passen.");
+                        Thread.Sleep(5000);
+                        Console.WriteLine("\nEine Erleichterung durchfährt dich.");
+                        Thread.Sleep(5000);
+
+                        klassenraumB.Begehbar = true;
+                        schliessfachGeloest = true;
+                        
+                        Console.Clear();
+                    }
+                    else
+                    {
+                        Console.WriteLine("\nEin leises Klicken ist zu hören, aber das Schloss bleibt verriegelt.");
+                        Thread.Sleep(5000);
+                        Console.WriteLine("\n„Falscher Code.“");
+                        Thread.Sleep(5000);
+                        Console.WriteLine("\nDu versuchst es erneut, die Zahlen im Kopf neu zu ordnen.");
+                        Thread.Sleep(5000);
+                        Console.Clear();
+                    }
+                }
+                else if (aktuellerRaum == klassenraumB && !tagebuchGeloest)
+                {
+                    Console.WriteLine("\nInmitten umgestürzter Schulbänke liegt ein aufgeschlagenes Tagebuch.");
+                    Thread.Sleep(5000);
+                    Console.WriteLine("\nDu hebst es auf und liest.");
+                    Thread.Sleep(5000);
+                    Console.WriteLine("\nEine Seite ist besonders auffällig.");
+                    Thread.Sleep(5000);
+                    Console.WriteLine("\n„Rot + Blau = ?“ Vielleicht im Chemieraum nachsehen?");
+                    Thread.Sleep(5000);
+
+                    tagebuchGeloest = true;
+                    
+                    Console.Clear();
+                }
+                else if (aktuellerRaum == musikraum && !chemieGeloest)
+                {
+                    Console.WriteLine("\nEin altes Tonbandgerät steht auf einem Klavier.");
+                    Thread.Sleep(5000);
+                    Console.WriteLine("\nDu drückst auf Play.");
+                    Thread.Sleep(5000);
+                    Console.WriteLine("\nEs spielt eine kurze einfache Melodie in einer Endlosschleife.");
+                    Thread.Sleep(5000);
+                    Console.WriteLine("\nDu versuchst die Melodie zu summen und dir einzuprägen.");
+                    Thread.Sleep(5000);
+                    Console.WriteLine("\nSumme die Töne: (mit Bindestrich)");
+                    string lied = Console.ReadLine();
+                    if (lied.ToUpper() == "C-E-G-E")
+                    {
+                        Console.WriteLine("\nAls du die Melodie C-E-G-E summst.");
+                        Thread.Sleep(5000);
+                        Console.WriteLine("\nScheint ein leises Klicken aus dem Inneren des Klaviers zu kommen.");
+                        Thread.Sleep(5000);
+                        Console.WriteLine("\nDu untersuchst es genauer und entdeckst einen kleinen, unscheinbaren Schlüssel.");
+                        Thread.Sleep(5000);
+                        Console.WriteLine("\nEr könnte zum Chemieraum passen, denkst du.");
+                        Thread.Sleep(5000);
+
+                        chemieraum.Begehbar = true;
+                        chemieGeloest = true;
+                        
+                        Console.Clear();
+                    }
+                    else
+                    {
+                        Console.WriteLine("\nDie Töne, die du von dir gibst, klingen schief und disharmonisch.");
+                        Thread.Sleep(5000);
+                        Console.WriteLine("\nNichts scheint zu reagieren.");
+                        Thread.Sleep(5000);
+                        Console.WriteLine("\nVersuche es noch einmal.");
+                        Thread.Sleep(5000);
+                        Console.Clear();
+                    }
+                }
+                else if (aktuellerRaum == chemieraum && tagebuchGeloest && !notausgang.Begehbar)
+                {
+                    Console.WriteLine("\nVor dir die rote und blaue Flüssigkeit.");
+                    Thread.Sleep(5000);
+                    Console.WriteLine("\nTagebuch und Notiz deuten auf eine Mischung.");
+                    Thread.Sleep(5000);
+                    Console.WriteLine("\n„Was ergibt Rot und Blau?“");
+                    string antwort = Console.ReadLine();
+                    if (antwort.ToLower() == "lila")
+                    {
+                        Console.Clear();
+                        Console.WriteLine("Die lilane Flüssigkeit im Reagenzglas leuchtet nun schwach.");
+                        Thread.Sleep(5000);
+                        Console.WriteLine("\nDu entdeckst einen kleinen Zettel, der am Boden des Glases klebt.");
+                        Thread.Sleep(5000);
+                        Console.WriteLine("\nVorsichtig schüttelst du ihn heraus.");
+                        Thread.Sleep(5000);
+                        Console.WriteLine("\nDarauf steht eine Zahlenfolge: „7 3 9 2 0 5 1 8.“");
+                        Thread.Sleep(5000);
+                        Console.WriteLine("\nDie Mischung der Farben hat die „Wahrheit“ enthüllt den Code für den Notausgang.");
+                        Thread.Sleep(5000);
+
+                        notausgang.Begehbar = true;
+                        
+                        Console.Clear();
+                    }
+                    else
+                    {
+                        Console.WriteLine("\nDu mischst die Flüssigkeiten.");
+                        Thread.Sleep(5000);
+                        Console.WriteLine("\nNichts scheint zu passieren.");
+                        Thread.Sleep(5000);
+                        Console.WriteLine("\nDie Farbe bleibt unverändert.");
+                        Thread.Sleep(5000);
+                        Console.WriteLine("\n„Das war wohl nicht die Wahrheit.“");
+                        Thread.Sleep(5000);
+                        Console.Clear();
+                    }
+                }
+                else if (aktuellerRaum == klassenraumC)
+                {
+                    Console.WriteLine("\nDu stöberst durch die verlassenen Schulbücher.");
+                    Thread.Sleep(5000);
+                    Console.WriteLine("\nIn einem alten, ledergebundenen Exemplar findest du eine eingeklebte Notiz.");
+                    Thread.Sleep(5000);
+                    Console.WriteLine("\nDarauf steht in klarer Schrift: „Der Code ist 4815.“");
+                    Thread.Sleep(5000);
+                    Console.WriteLine("\n„Das könnte nützlich sein.“");
+                    Thread.Sleep(5000);
+                    Console.Clear();
+                }
+                else if (aktuellerRaum == umkleide && !musikGeloest)
+                {
+                    Console.Clear();
+                    Console.WriteLine("Zwischen alten Sportklamotten entdeckst du ein vergilbtes Notenblatt.");
+                    Thread.Sleep(5000);
+                    Console.WriteLine("\nDarauf sind die Noten „C-E-G-E“ notiert.");
+                    Thread.Sleep(5000);
+                    Console.WriteLine("\nDarunter steht in blasser Schrift: „Die Melodie öffnet den Weg zur Harmonie.“");
+                    Thread.Sleep(5000);
+                    Console.WriteLine("\nDu prägst dir die Notenfolge ein.");
+                    Thread.Sleep(5000);
+
+                    musikraum.Begehbar = true;
+                    musikGeloest = true;
+
+                    Console.Clear();
+                }
+                else if (aktuellerRaum == notausgang)
+                {
+                    Console.Clear();
+                    Console.WriteLine("Vor dem digitalen Zahlenschloss des Notausgangs stehst du.");
+                    Thread.Sleep(5000);
+                    Console.WriteLine("\nAcht Ziffern sind gefordert.");
+                    Thread.Sleep(5000);
+                    Console.WriteLine("\nDie lilane Flüssigkeit und der Zettel im Chemieraum haben dir geholfen.");
+                    Thread.Sleep(5000);
+                    Console.WriteLine("\nDie „Mischung der Wahrheit“ ergab die Zahlenfolge:");
+                    Thread.Sleep(5000);
+                    Console.WriteLine("\nSieben steht für die sieben Todsünden.");
+                    Thread.Sleep(5000);
+                    Console.WriteLine("\nDrei für die Dreifaltigkeit.");
+                    Thread.Sleep(5000);
+                    Console.WriteLine("\nNeun für die neun Kreise der Hölle.");
+                    Thread.Sleep(5000);
+                    Console.WriteLine("\nZwei für Gut und Böse");
+                    Thread.Sleep(5000);
+                    Console.WriteLine("\nNull für die Leere");
+                    Thread.Sleep(5000);
+                    Console.WriteLine("\nFünf für die fünf Sinne");
+                    Thread.Sleep(5000);
+                    Console.WriteLine("\nEins für den Anfang.");
+                    Thread.Sleep(5000);
+                    Console.WriteLine("\nAcht für die Unendlichkeit.");
+                    Thread.Sleep(5000);
+                    Console.WriteLine("\nEine makabre Kombination, aber sie ergibt Sinn in dieser alptraumhaften Schule.");
+                    Thread.Sleep(5000);
+                    Console.WriteLine("\n\nGib den Code ein:");
+                    string code = Console.ReadLine();
+                    if (code == notausgangsCode)
+                    {
+                        Console.Clear();
+                        Console.WriteLine("Draußen ist es still.");
+                        Thread.Sleep(5000);
+                        Console.WriteLine("\nDer Nebel scheint sich etwas gelichtet zu haben.");
+                        Thread.Sleep(5000);
+                        Console.WriteLine("\nDu atmest tief durch.");
+                        Thread.Sleep(5000);
+                        Console.WriteLine("\nDu denkst, die unheimliche Atmosphäre der Schule hinter dir gelassen zu haben.");
+                        Thread.Sleep(5000);
+                        Console.WriteLine("\nDoch dann entdeckst du etwas am Boden ein kleines Stück Stoff.");
+                        Thread.Sleep(5000);
+                        Console.WriteLine("\nDu hebst es auf und es kommt dir bekannt vor.");
+                        Thread.Sleep(5000);
+                        Console.WriteLine("\nGenauer betrachtet erkennst du einen eingenähten Patch: „Brookhaven Hospital“.");
+                        Thread.Sleep(5000);
+                        Console.WriteLine("\nEin kalter Schauer läuft dir über den Rücken.");
+                        Thread.Sleep(5000);
+                        Console.WriteLine("\n„Sie lebt“, flüsterst du ungläubig und ballst die Faust.");
+                        Thread.Sleep(5000);
+                        Console.WriteLine("\nDein nächstes Ziel steht fest.");
+                        Thread.Sleep(5000);
+
+                        levelBeendet = true;
+
+                        Credits.CreditsAnzeigen();
+                    }
+                    else
+                    {
+                        Console.WriteLine("Das digitale Schloss blinkt rot und gibt einen kurzen, schrillen Piepton von sich.");
+                        Thread.Sleep(5000);
+                        Console.WriteLine("„Falsch.“");
+                        Thread.Sleep(5000);
+                        Console.WriteLine("Du versuchst es erneut, die Zahlen im Kopf neu zu ordnen.");
+                        Thread.Sleep(5000);
+                        Console.Clear();
+                    }
+                }
+
+                Console.Clear();
                 Console.WriteLine("Du bist im " + aktuellerRaum.Name + ".");
                 Console.WriteLine("\nVerfügbare Räume:");
-                Console.WriteLine("┌──────────────────────────────┐");
+                Console.WriteLine("┌─────────────────────────────────┐");
+                foreach (var raum in aktuellerRaum.Zugang.OrderBy(r => r.Nr))
+                {
+                    string raumName = !raum.Begehbar ? raum.Name + " (Verschlossen)" : raum.Name;
+                    Console.WriteLine($"| {raum.Nr}. {raumName,-28} |");
+                }
+                Console.WriteLine("└─────────────────────────────────┘");
 
-                // Zeige alle Räume an, die vom aktuellen Raum aus erreichbar sind
-                foreach (var raum in aktuellerRaum.Zugang)
-                    foreach (var raum in aktuellerRaum.Zugang)
+                Console.WriteLine("\n\nWohin möchtest du gehen? (Nummer eingeben)");
+                if (int.TryParse(Console.ReadLine(), out int wahl))
+                {
+                    Raum zielRaum = aktuellerRaum.Zugang.Find(r => r.Nr == wahl);
+                    if (zielRaum != null && zielRaum.Begehbar)
                     {
-                 /*       string raumName = raum == lager && !schluesselGefunden ? $"{raum.Name} (Verschlossen)" : raum.Name;
-                 */       Console.WriteLine($"| {raum.Nr}. {raumName,-25} |");
+                        aktuellerRaum = zielRaum;
                     }
-
-                Console.WriteLine("└──────────────────────────────┘");
-
-                // Spieler gibt die Zahl des nächsten Raumes ein
-                Console.WriteLine("\nWohin möchtest du gehen? (Gib die Zahl des Raumes ein)");
-                string eingabe = Console.ReadLine();
-
-                // Prüfen, ob Eingabe eine gültige Zahl ist
-                if (!int.TryParse(eingabe, out int raumNr))
-                {
-                    Console.WriteLine("Ungültige Eingabe! Bitte gib eine Zahl ein.");
-                    Console.WriteLine("(Beliebige Taste drücken)");
-                    Console.ReadKey(); // Warte auf Tastendruck
-                    continue; // Zurück zum Anfang der Schleife
+                    else if (wahl == 3 && aktuellerRaum == flur && !schliessfachGeloest)
+                    {
+                        Console.Clear();
+                        Console.WriteLine("Du versuchst, den Klassenraum B zu betreten, aber die Tür ist verriegelt.");
+                        Thread.Sleep(5000);
+                        Console.WriteLine("\nDurch das Fenster siehst du umgestürzte Möbel und verstreute Blätter.");
+                        Thread.Sleep(5000);
+                        Console.WriteLine("\nEs wirkt, als wäre hier etwas Eiliges oder Gewaltsames geschehen.");
+                        Thread.Sleep(5000);
+                        Console.WriteLine("\nEs gibt keinen offensichtlichen Hinweis, wie du die Tür öffnen könntest.");
+                        Thread.Sleep(5000);
+                        Console.Clear();
+                        continue;
+                    }
+                    else if (wahl == 4 && aktuellerRaum == flur && !musikGeloest)
+                    {
+                        Console.Clear();
+                        Console.WriteLine("Du stehst vor der Tür zum Musikraum.");
+                        Thread.Sleep(5000);
+                        Console.WriteLine("\nSie ist verschlossen.");
+                        Thread.Sleep(5000);
+                        Console.WriteLine("\nDu versuchst die Klinke, aber sie lässt sich nicht bewegen.");
+                        Thread.Sleep(5000);
+                        Console.WriteLine("\nEin Schild hängt an der Tür:");
+                        Thread.Sleep(5000);
+                        Console.WriteLine("\n„Nur wer die Melodie der Harmonie kennt, findet Einlass.“");
+                        Thread.Sleep(5000);
+                        Console.Clear();
+                        continue;
+                    }
+                    else if (wahl == 5 && aktuellerRaum == flur && !chemieGeloest)
+                    {
+                        Console.Clear();
+                        Console.WriteLine("Die Tür zum Chemieraum ist verschlossen.");
+                        Thread.Sleep(5000);
+                        Console.WriteLine("\nEin unheimlicher Geruch.");
+                        Thread.Sleep(5000);
+                        Console.WriteLine("\nEine Mischung aus Desinfektionsmittel und etwas Unbekanntem, dringt durch den Türspalt.");
+                        Thread.Sleep(5000);
+                        Console.WriteLine("\nEin handgeschriebener Zettel klebt an der Tür:");
+                        Thread.Sleep(5000);
+                        Console.WriteLine("\n„Die Wahrheit liegt in der richtigen Mischung.“");
+                        Thread.Sleep(5000);
+                        Console.Clear();
+                        continue;
+                    }
+                    else if (wahl == 9 && aktuellerRaum == chemieraum && !notausgang.Begehbar)
+                    {
+                        Console.Clear();
+                        Console.WriteLine("Du stehst vor der Tür, die scheinbar zum Notausgang führt.");
+                        Thread.Sleep(5000);
+                        Console.WriteLine("\nDie Klinke lässt sich drücken.");
+                        Thread.Sleep(5000);
+                        Console.WriteLine("\nAber die Tür ist zusätzlich mit einem digitalen Zahlenschloss gesichert.");
+                        Thread.Sleep(5000);
+                        Console.WriteLine("\nEin kleines Display leuchtet rot.");
+                        Thread.Sleep(5000);
+                        Console.WriteLine("\n„Ein Code wird benötigt.“");
+                        Thread.Sleep(5000);
+                        Console.WriteLine("\nVielleicht liegt die Lösung hier im Raum?");
+                        Thread.Sleep(5000);
+                        Console.Clear();
+                        continue;
+                    }
+                    else
+                    {
+                        Console.WriteLine("\nUngültige Eingabe.");
+                        Thread.Sleep(3000);
+                        Console.Clear();
+                    }
                 }
-
-                // Versuche, den Spieler in einen neuen Raum zu bewegen
-                Raum neuerRaum = BewegeSpieler(aktuellerRaum, raumNr);
-                if (neuerRaum == null)
+                else
                 {
-                    Console.WriteLine("Ungültiger Raum! Bitte wähle eine gültige Zahl.");
-                    Console.WriteLine("(Beliebige Taste drücken)");
-                    Console.ReadKey();
-                    continue; // Zurück zur Auswahl
+                    Console.WriteLine("\nUngültige Eingabe.");
+                    Thread.Sleep(3000);
+                    Console.Clear();
                 }
-
-                // Wenn alles passt, bewege den Spieler in den neuen Raum
-                aktuellerRaum = neuerRaum;
             }
         }
 
-        // Methode zur Bewegung in einen neuen Raum anhand der Raumnummer
-        static Raum BewegeSpieler(Raum aktuellerRaum, int raumNr)
-        {
-            foreach (var raum in aktuellerRaum.Zugang)
-            {
-                // Wenn Raumnummer stimmt, gib den Raum zurück
-                if (raum.Nr == raumNr)
-                {
-                    return raum;
-                }
-            }
-
-            // Wenn kein passender Raum gefunden wurde, gib null zurück
-            return null;
-        }
-
-        // Die Klasse "Raum" beschreibt einen Raum im Spiel
         class Raum
         {
-            public string Name { get; set; }            // Name des Raums (z. B. "Musikraum")
-            public int Nr { get; set; }                 // Nummer zur Identifizierung im Spiel
-            public bool Access { get; set; }            // Ist der Raum betretbar?
-            public bool CharAnwesend { get; set; }      // Ist eine Spielfigur/NPC im Raum?
-            public bool ItemVorhanden { get; set; }     // Gibt es ein Item im Raum?
-            public List<Raum> Zugang { get; set; }      // Liste der erreichbaren Räume von hier aus
+            public string Name { get; set; }
+            public int Nr { get; set; }
+            public bool Begehbar { get; set; }
+            public bool CharakterAnwesend { get; set; }
+            public bool ItemVorhanden { get; set; }
+            public List<Raum> Zugang { get; set; }
 
-            // Konstruktor: erstellt einen Raum mit seinen Eigenschaften
-            public Raum(string name, int nr, bool access, bool charAnwesend, bool itemVorhanden)
+            public Raum(string name, int nr, bool begehbar, bool charakter, bool item)
             {
                 Name = name;
                 Nr = nr;
-                Access = access;
-                CharAnwesend = charAnwesend;
-                ItemVorhanden = itemVorhanden;
-                Zugang = new List<Raum>(); // Initialisiere leere Liste für Zugänge
+                Begehbar = begehbar;
+                CharakterAnwesend = charakter;
+                ItemVorhanden = item;
+                Zugang = new List<Raum>();
             }
         }
     }
