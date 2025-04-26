@@ -93,18 +93,13 @@ namespace ExitGame
                 {
                     while (true)
                     {
-                        Console.Clear();
-                        Console.WriteLine("Staub liegt wie ein Leichentuch über den Möbeln.");
+                        Console.WriteLine("\nStaub liegt wie ein Leichentuch über den Möbeln.");
                         Thread.Sleep(5000);
                         Console.WriteLine("\nIn einem der Regale entdeckst du ein Notizbuch.");
                         Thread.Sleep(5000);
                         Console.WriteLine("\nEine einzelne Seite ist beschrieben: „YPMADIR“.");
                         Thread.Sleep(5000);
                         Console.WriteLine("\nDarunter steht: „Die Antwort liegt in der Form der Macht.“");
-                        Thread.Sleep(5000);
-                        Console.WriteLine("\nDie seltsamen Pyramiden die du in der Toilette gesehen hast schießen dir in den Kopf.");
-                        Thread.Sleep(5000);
-                        Console.WriteLine("\nDie Form... eine Pyramide... vielleicht musst du die Buchstaben anders anordnen.");
                         Thread.Sleep(5000);
                         Console.WriteLine("\n\nGib die Lösung ein:");
                         string eingabe = Console.ReadLine().ToUpper();
@@ -125,6 +120,7 @@ namespace ExitGame
                         {
                             Console.WriteLine("\nFalsch. Versuche es erneut...");
                             Thread.Sleep(1000);
+                            return false;
                         }
                     }
                 }

@@ -10,11 +10,12 @@ namespace ExitGame
     {
         public void MenueAnzeigen()
         {
+            Console.Clear();
             Console.Title = "SILENT HILL - ESCAPE ROOM GAME";
             Console.ForegroundColor = ConsoleColor.DarkRed;
             Thread.Sleep(3000);
 
-            string[] titleArt = new string[]
+            string[] TitelBild = new string[]
             {
                 @"  ███████ ██ ██      ███████ ███    ██ ████████     ██   ██ ██ ██      ██       ",
                 @"  ██      ██ ██      ██      ████   ██    ██        ██   ██ ██ ██      ██       ",
@@ -34,7 +35,7 @@ namespace ExitGame
                 @"                                   Nico Feil                                    ",
             };
 
-            foreach (string line in titleArt)
+            foreach (string line in TitelBild)
             {
                 Console.WriteLine(line);
                 Thread.Sleep(120); // Grusel-Effekt
@@ -51,15 +52,22 @@ namespace ExitGame
             while (true)
             {
                 Console.WriteLine("  ███████ ██ ██      ███████ ███    ██ ████████     ██   ██ ██ ██      ██       ");
+                Thread.Sleep(120);
                 Console.WriteLine("  ██      ██ ██      ██      ████   ██    ██        ██   ██ ██ ██      ██       ");
+                Thread.Sleep(120);
                 Console.WriteLine("  ███████ ██ ██      █████   ██ ██  ██    ██        ███████ ██ ██      ██       ");
+                Thread.Sleep(120);
                 Console.WriteLine("       ██ ██ ██      ██      ██  ██ ██    ██        ██   ██ ██ ██      ██       ");
+                Thread.Sleep(120);
                 Console.WriteLine("  ███████ ██ ███████ ███████ ██   ████    ██        ██   ██ ██ ███████ ███████  ");
+                Thread.Sleep(120);
                 Console.WriteLine("\nE  S  C  A  P  E                  R  O  O  M                          G  A  M  E");
-                Console.WriteLine();
-                Console.WriteLine("1. Spiel beginnen");
-                Console.WriteLine("2. Beenden");
-                Console.WriteLine();
+                Thread.Sleep(120);
+                Console.WriteLine("\n\n\n\n1. SPIEL BEGINNEN");
+                Thread.Sleep(120);
+                Console.WriteLine("\n2. CREDITS");
+                Thread.Sleep(120);
+                Console.WriteLine("\n3. BEENDEN\n");
 
                 string auswahl = Console.ReadLine();
 
@@ -69,10 +77,14 @@ namespace ExitGame
                         Werkstatt.Spielstart(); // <-- Achtung: Methode muss existieren!
                         break;
                     case "2":
-                        return;
+                        Credits.CreditsAnzeigen();
+                        break;
+                    case "3":
+                        Environment.Exit(0);
+                        break;
                     default:
                         Console.WriteLine("Ungültige Auswahl. Bitte versuchen Sie es erneut.");
-                        Thread.Sleep(1000);
+                        Thread.Sleep(3000);
                         Console.Clear();
                         break;
                 }

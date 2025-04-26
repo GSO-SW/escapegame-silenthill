@@ -3,16 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\Daniel Jung\\source\\repos\\escapegame-silenthill\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{8BD476DE-7523-CAF3-4BC3-9DF8FD109E49}|ExitGame.csproj|c:\\users\\daniel jung\\source\\repos\\escapegame-silenthill\\startmenue.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BD476DE-7523-CAF3-4BC3-9DF8FD109E49}|ExitGame.csproj|solutionrelative:startmenue.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8BD476DE-7523-CAF3-4BC3-9DF8FD109E49}|ExitGame.csproj|c:\\users\\daniel jung\\source\\repos\\escapegame-silenthill\\credits.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8BD476DE-7523-CAF3-4BC3-9DF8FD109E49}|ExitGame.csproj|solutionrelative:credits.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{8BD476DE-7523-CAF3-4BC3-9DF8FD109E49}|ExitGame.csproj|c:\\users\\daniel jung\\source\\repos\\escapegame-silenthill\\schule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8BD476DE-7523-CAF3-4BC3-9DF8FD109E49}|ExitGame.csproj|solutionrelative:schule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8BD476DE-7523-CAF3-4BC3-9DF8FD109E49}|ExitGame.csproj|c:\\users\\daniel jung\\source\\repos\\escapegame-silenthill\\werkstatt.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8BD476DE-7523-CAF3-4BC3-9DF8FD109E49}|ExitGame.csproj|solutionrelative:werkstatt.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8BD476DE-7523-CAF3-4BC3-9DF8FD109E49}|ExitGame.csproj|c:\\users\\daniel jung\\source\\repos\\escapegame-silenthill\\startmenue.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8BD476DE-7523-CAF3-4BC3-9DF8FD109E49}|ExitGame.csproj|solutionrelative:startmenue.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8BD476DE-7523-CAF3-4BC3-9DF8FD109E49}|ExitGame.csproj|c:\\users\\daniel jung\\source\\repos\\escapegame-silenthill\\raum.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -33,18 +37,27 @@
           "SelectedChildIndex": 2,
           "Children": [
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Credits.cs",
+              "DocumentMoniker": "C:\\Users\\Daniel Jung\\source\\repos\\escapegame-silenthill\\Credits.cs",
+              "RelativeDocumentMoniker": "Credits.cs",
+              "ToolTip": "C:\\Users\\Daniel Jung\\source\\repos\\escapegame-silenthill\\Credits.cs",
+              "RelativeToolTip": "Credits.cs",
+              "ViewState": "AgIAAIoAAAAAAAAAAAArwJ4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-26T17:55:18.612Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "Werkstatt.cs",
               "DocumentMoniker": "C:\\Users\\Daniel Jung\\source\\repos\\escapegame-silenthill\\Werkstatt.cs",
               "RelativeDocumentMoniker": "Werkstatt.cs",
               "ToolTip": "C:\\Users\\Daniel Jung\\source\\repos\\escapegame-silenthill\\Werkstatt.cs",
               "RelativeToolTip": "Werkstatt.cs",
-              "ViewState": "AgIAAOIAAACA//////8vwPYAAABDAAAAAAAAAA==",
+              "ViewState": "AgIAAOkAAAAAAAAAAAArwPgAAABZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-25T07:01:10.472Z",
               "EditorCaption": ""
@@ -52,31 +65,19 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Schule.cs",
-              "DocumentMoniker": "C:\\Users\\Daniel Jung\\source\\repos\\escapegame-silenthill\\Schule.cs",
-              "RelativeDocumentMoniker": "Schule.cs",
-              "ToolTip": "C:\\Users\\Daniel Jung\\source\\repos\\escapegame-silenthill\\Schule.cs*",
-              "RelativeToolTip": "Schule.cs*",
-              "ViewState": "AgIAABABAAAAAAAAAAAkwC0BAABWAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-27T10:40:11.644Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
               "Title": "Startmenue.cs",
               "DocumentMoniker": "C:\\Users\\Daniel Jung\\source\\repos\\escapegame-silenthill\\Startmenue.cs",
               "RelativeDocumentMoniker": "Startmenue.cs",
               "ToolTip": "C:\\Users\\Daniel Jung\\source\\repos\\escapegame-silenthill\\Startmenue.cs",
               "RelativeToolTip": "Startmenue.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAADwAAAAAAAAAAAAQwFMAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-25T16:15:49.692Z"
+              "WhenOpened": "2025-03-25T16:15:49.692Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Raum.cs",
               "DocumentMoniker": "C:\\Users\\Daniel Jung\\source\\repos\\escapegame-silenthill\\Raum.cs",
               "RelativeDocumentMoniker": "Raum.cs",
@@ -84,19 +85,34 @@
               "RelativeToolTip": "Raum.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-25T16:15:45.25Z"
+              "WhenOpened": "2025-03-25T16:15:45.25Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\Daniel Jung\\source\\repos\\escapegame-silenthill\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "C:\\Users\\Daniel Jung\\source\\repos\\escapegame-silenthill\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAgAAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-19T18:47:43.165Z"
+              "WhenOpened": "2025-03-19T18:47:43.165Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Schule.cs",
+              "DocumentMoniker": "C:\\Users\\Daniel Jung\\source\\repos\\escapegame-silenthill\\Schule.cs",
+              "RelativeDocumentMoniker": "Schule.cs",
+              "ToolTip": "C:\\Users\\Daniel Jung\\source\\repos\\escapegame-silenthill\\Schule.cs",
+              "RelativeToolTip": "Schule.cs",
+              "ViewState": "AgIAAOsAAAAAAAAAAAAmwDcBAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-27T10:40:11.644Z",
+              "EditorCaption": ""
             }
           ]
         }

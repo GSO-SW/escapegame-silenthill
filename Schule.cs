@@ -151,6 +151,14 @@ namespace ExitGame
                 }
                 else if (aktuellerRaum == musikraum && !chemieGeloest)
                 {
+                    Console.WriteLine("\nEin altes Tonbandgerät steht auf einem Klavier.");
+                    Thread.Sleep(5000);
+                    Console.WriteLine("\nDu drückst auf Play.");
+                    Thread.Sleep(5000);
+                    Console.WriteLine("\nEs spielt eine kurze einfache Melodie in einer Endlosschleife.");
+                    Thread.Sleep(5000);
+                    Console.WriteLine("\nDu versuchst die Melodie zu summen und dir einzuprägen.");
+                    Thread.Sleep(5000);
                     Console.WriteLine("\nSumme die Töne: (mit Bindestrich)");
                     string lied = Console.ReadLine();
                     if (lied.ToUpper() == "C-E-G-E")
@@ -273,7 +281,7 @@ namespace ExitGame
                     Thread.Sleep(5000);
                     Console.WriteLine("\nEins für den Anfang.");
                     Thread.Sleep(5000);
-                    Console.WriteLine("\nAcht für die Unendlichkeit..");
+                    Console.WriteLine("\nAcht für die Unendlichkeit.");
                     Thread.Sleep(5000);
                     Console.WriteLine("\nEine makabre Kombination, aber sie ergibt Sinn in dieser alptraumhaften Schule.");
                     Thread.Sleep(5000);
@@ -282,14 +290,39 @@ namespace ExitGame
                     if (code == notausgangsCode)
                     {
                         Console.Clear();
-                        Console.WriteLine("Die Tür öffnet sich – du bist entkommen!");
+                        Console.WriteLine("Draußen ist es still.");
+                        Thread.Sleep(5000);
+                        Console.WriteLine("\nDer Nebel scheint sich etwas gelichtet zu haben.");
+                        Thread.Sleep(5000);
+                        Console.WriteLine("\nDu atmest tief durch.");
+                        Thread.Sleep(5000);
+                        Console.WriteLine("\nDu denkst, die unheimliche Atmosphäre der Schule hinter dir gelassen zu haben.");
+                        Thread.Sleep(5000);
+                        Console.WriteLine("\nDoch dann entdeckst du etwas am Boden ein kleines Stück Stoff.");
+                        Thread.Sleep(5000);
+                        Console.WriteLine("\nDu hebst es auf und es kommt dir bekannt vor.");
+                        Thread.Sleep(5000);
+                        Console.WriteLine("\nGenauer betrachtet erkennst du einen eingenähten Patch: „Brookhaven Hospital“.");
+                        Thread.Sleep(5000);
+                        Console.WriteLine("\nEin kalter Schauer läuft dir über den Rücken.");
+                        Thread.Sleep(5000);
+                        Console.WriteLine("\n„Sie lebt“, flüsterst du ungläubig und ballst die Faust.");
+                        Thread.Sleep(5000);
+                        Console.WriteLine("\nDein nächstes Ziel steht fest.");
+                        Thread.Sleep(5000);
+
                         levelBeendet = true;
-                        break;
+
+                        Credits.CreditsAnzeigen();
                     }
                     else
                     {
-                        Console.WriteLine("Falscher Code.");
-                        Thread.Sleep(3000);
+                        Console.WriteLine("Das digitale Schloss blinkt rot und gibt einen kurzen, schrillen Piepton von sich.");
+                        Thread.Sleep(5000);
+                        Console.WriteLine("„Falsch.“");
+                        Thread.Sleep(5000);
+                        Console.WriteLine("Du versuchst es erneut, die Zahlen im Kopf neu zu ordnen.");
+                        Thread.Sleep(5000);
                         Console.Clear();
                     }
                 }
