@@ -163,7 +163,7 @@ namespace ExitGame
                     Thread.Sleep(5000);
                     Console.WriteLine("\nSumme die Töne: (mit Bindestrich)");
                     string lied = Console.ReadLine();
-                    if (lied.ToUpper() == "C-E-G-E")
+                    if (lied.ToUpper() == "C-E-G-E") // Prüfe auf "C E G E" (Großschreibung)
                     {
                         Console.WriteLine("\nAls du die Melodie C-E-G-E summst.");
                         Thread.Sleep(5000);
@@ -197,8 +197,10 @@ namespace ExitGame
                     Console.WriteLine("\nTagebuch und Notiz deuten auf eine Mischung.");
                     Thread.Sleep(5000);
                     Console.WriteLine("\n„Was ergibt Rot und Blau?“");
+                    Thread.Sleep(5000);
+                    Console.WriteLine("\nFarbe Eingeben:");
                     string antwort = Console.ReadLine();
-                    if (antwort.ToLower() == "lila")
+                    if (antwort.ToLower() == "lila") // Prüfe auf "lila" (Groß-/Kleinschreibung egal)
                     {
                         Console.Clear();
                         Console.WriteLine("Die lilane Flüssigkeit im Reagenzglas leuchtet nun schwach.");
