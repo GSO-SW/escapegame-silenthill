@@ -11,11 +11,14 @@ namespace ExitGame
         public void MenueAnzeigen()
         {
             Console.Clear();
-            Console.Title = "SILENT HILL - ESCAPE ROOM GAME";
-            Console.ForegroundColor = ConsoleColor.DarkRed;
-            Thread.Sleep(3000);
 
-            string[] TitelBild = new string[]
+            Console.Title = "SILENT HILL - ESCAPE ROOM GAME"; // Konsole Titel vergebung
+
+            Console.ForegroundColor = ConsoleColor.DarkRed; // Setzt die Schriftfarbe auf Dunkelrot
+
+            Thread.Sleep(3000); // 3 Sekunden Timer
+
+            string[] TitelBild = new string[] // Definiert das ASCII-Art für die Startmenü Titelseite
             {
                 @"  ███████ ██ ██      ███████ ███    ██ ████████     ██   ██ ██ ██      ██       ",
                 @"  ██      ██ ██      ██      ████   ██    ██        ██   ██ ██ ██      ██       ",
@@ -37,16 +40,20 @@ namespace ExitGame
 
             foreach (string line in TitelBild)
             {
-                Console.WriteLine(line);
-                Thread.Sleep(120); // Grusel-Effekt
+                Console.WriteLine(line); // Gibt die ASCII-Art Zeile für Zeile aus
+                Thread.Sleep(120);
             }
 
-            Console.ForegroundColor = ConsoleColor.White;
+            Console.ForegroundColor = ConsoleColor.White; // Setzt die Schriftfarbe auf Weiß
+
             Console.WriteLine("\n                                                                                ");
             Console.WriteLine("                      Drücke eine Taste, um fortzufahren...                     ");
             Console.WriteLine("\n                                                                                ");
-            Console.ResetColor();
-            Console.ReadKey();
+
+            Console.ResetColor(); // Schriftfarbe wird zurückgesetzt
+
+            Console.ReadKey(); // Wartet auf eine Benutzereingabe, bevor das Programm weitergeht
+
             Console.Clear();
 
             while (true)
@@ -74,7 +81,7 @@ namespace ExitGame
                 switch (auswahl)
                 {
                     case "1":
-                        Werkstatt.Spielstart(); // <-- Achtung: Methode muss existieren!
+                        Werkstatt.Spielstart();
                         break;
                     case "2":
                         Credits.CreditsAnzeigen();
