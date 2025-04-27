@@ -9,6 +9,8 @@ namespace ExitGame
 {
     public class Schule
     {
+
+        public static bool ZurueckZumStartmenue { get; private set; } = false;
         public static void Spielstart()
         {
             Console.Clear();
@@ -106,8 +108,8 @@ namespace ExitGame
                     Console.WriteLine("\nDu grübelst über mögliche Erinnerungen nach.");
                     Thread.Sleep(5000);
                     Console.WriteLine("\n\nCode Eingeben:");
-                    string eingabe = Console.ReadLine();
-                    if (eingabe == "4815")
+                    string schliessfacheingabe = Console.ReadLine();
+                    if (schliessfacheingabe == "4815")
                     {
                         Console.WriteLine("\nDas Schließfach klickt leise und springt auf.");
                         Thread.Sleep(5000);
@@ -338,8 +340,18 @@ namespace ExitGame
                 }
                 Console.WriteLine("└─────────────────────────────────┘");
 
-                Console.WriteLine("\n\nWohin möchtest du gehen? (Nummer eingeben)");
-                if (int.TryParse(Console.ReadLine(), out int wahl))
+                Console.WriteLine("\n\nWohin möchtest du gehen? (Nummer eingeben) oder „exit“ zum Startmenü:");
+                string eingabe = Console.ReadLine();
+
+                if (eingabe.ToLower() == "exit") // Prüfe auf "exit" (Groß-/Kleinschreibung egal)
+                {
+                    Console.Clear();
+                    ZurueckZumStartmenue = true;
+                    Startmenue startmenue = new Startmenue();
+                    startmenue.MenueAnzeigen(); // Rufe MenueAnzeigen() hier auf, bevor die Methode verlässt.
+                    return; // Beendet die Methode hier, damit die Schleife nicht weiterläuft
+                }
+                if (int.TryParse(eingabe, out int wahl))
                 {
                     Raum zielRaum = aktuellerRaum.Zugang.Find(r => r.Nr == wahl);
                     if (zielRaum != null && zielRaum.Begehbar)
@@ -424,16 +436,23 @@ namespace ExitGame
                     Console.Clear();
                 }
             }
+            if (ZurueckZumStartmenue)
+            {
+                ZurueckZumStartmenue = false;
+                Startmenue startmenue = new Startmenue();
+                startmenue.MenueAnzeigen();
+            }
         }
 
+        // Innere Klasse "Raum" definiert Struktur eines Raumes
         class Raum
         {
-            public string Name { get; set; }
-            public int Nr { get; set; }
-            public bool Begehbar { get; set; }
-            public bool CharakterAnwesend { get; set; }
-            public bool ItemVorhanden { get; set; }
-            public List<Raum> Zugang { get; set; }
+            public string Name { get; set; } // Raumname
+            public int Nr { get; set; } // Raum-Nummer zur Auswahl
+            public bool Begehbar { get; set; } // Ist der Raum betretbar?
+            public bool CharakterAnwesend { get; set; } // Ist ein Charakter im Raum?
+            public bool ItemVorhanden { get; set; } // Ist ein Item im Raum?
+            public List<Raum> Zugang { get; set; } // Liste erreichbarer Nachbarräume
 
             public Raum(string name, int nr, bool begehbar, bool charakter, bool item)
             {

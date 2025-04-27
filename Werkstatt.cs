@@ -9,6 +9,8 @@ namespace ExitGame
     // Interne Klasse "Werkstatt", enthält die Spiellogik für dieses Level
     internal class Werkstatt
     {
+
+        public static bool ZurueckZumStartmenue { get; private set; } = false;
         // Startpunkt des Werkstatt-Levels
         public static void Spielstart()
         {
@@ -70,7 +72,7 @@ namespace ExitGame
                 Console.WriteLine("\nVerfügbare Räume:");
                 Console.WriteLine("┌─────────────────────────────────┐");
 
-                // Liste verfügbarer Räume ausgeben – Lager wird als „verschlossen“ markiert, wenn kein Schlüssel
+                // Liste verfügbarer Räume ausgeben (Lager wird als „verschlossen“ markiert, wenn kein Schlüssel)
                 foreach (var raum in aktuellerRaum.Zugang)
                 {
                     string raumName = raum == lager && !schluesselGefunden ? $"{raum.Name} (Verschlossen)" : raum.Name;
@@ -84,8 +86,8 @@ namespace ExitGame
                     if (LoeseRaetsel("PYRAMID")) // Richtige Lösung: "PYRAMID"
                     {
                         schluesselGefunden = true;
-                        Console.Clear(); // Alles frisch
-                        continue;        // Schleife von vorne starten → Anzeige korrekt
+                        Console.Clear();
+                        continue;
                     }
                 }
 
@@ -141,7 +143,7 @@ namespace ExitGame
                     Thread.Sleep(5000);
                 }
 
-                // Wenn man im Lager ist und Schlüssel hat → Spiel beenden
+                // Wenn man im Lager ist und Schlüssel hat
                 if (aktuellerRaum == lager && schluesselGefunden)
                 {
                     Console.Clear();
@@ -232,17 +234,27 @@ namespace ExitGame
                     Thread.Sleep(500);
                     Console.Clear();
                     Console.WriteLine("Nächstes Level wird geladen...");
-                    Thread.Sleep(500);
+                    Thread.Sleep(1500);
 
                     // Starte das nächste Level (Schule)
                     Schule.Spielstart();
                 }
 
                 // Raumwechsel-Abfrage
-                Console.WriteLine("\n\nWohin möchtest du gehen? (Nummer eingeben)");
-                if (int.TryParse(Console.ReadLine(), out int raumNr))
+                Console.WriteLine("\n\nWohin möchtest du gehen? (Nummer eingeben) oder „exit“ zum Startmenü:");
+                string eingabe = Console.ReadLine();
+
+                if (eingabe.ToLower() == "exit") // Prüfe auf "exit" (Groß-/Kleinschreibung egal)
                 {
-                    // Wenn Lager ausgewählt wird, aber kein Schlüssel vorhanden → blockieren
+                    Console.Clear();
+                    ZurueckZumStartmenue = true;
+                    Startmenue startmenue = new Startmenue();
+                    startmenue.MenueAnzeigen(); // Rufe MenueAnzeigen() hier auf, bevor die Methode verlässt
+                    return; // Beendet die Methode hier, damit die Schleife nicht weiterläuft
+                }
+                if (int.TryParse(eingabe, out int raumNr))
+                {
+                    // Wenn Lager ausgewählt wird, aber kein Schlüssel vorhanden ist
                     if (raumNr == 4 && aktuellerRaum == werkstattraum && !schluesselGefunden)
                     {
                         Console.Clear();
@@ -297,12 +309,12 @@ namespace ExitGame
         // Innere Klasse "Raum" definiert Struktur eines Raumes
         class Raum
         {
-            public string Name { get; set; }               // Raumname
-            public int Nr { get; set; }                    // Raum-Nummer zur Auswahl
-            public bool Access { get; set; }               // Ist der Raum betretbar?
-            public bool CharAnwesend { get; set; }         // Ist ein Charakter im Raum?
-            public bool ItemVorhanden { get; set; }        // Ist ein Item im Raum?
-            public List<Raum> Zugang { get; set; }         // Liste erreichbarer Nachbarräume
+            public string Name { get; set; } // Raumname
+            public int Nr { get; set; } // Raum-Nummer zur Auswahl
+            public bool Access { get; set; } // Ist der Raum betretbar?
+            public bool CharAnwesend { get; set; } // Ist ein Charakter im Raum?
+            public bool ItemVorhanden { get; set; } // Ist ein Item im Raum?
+            public List<Raum> Zugang { get; set; } // Liste erreichbarer Nachbarräume
 
             public Raum(string name, int nr, bool access, bool charAnwesend, bool itemVorhanden)
             {

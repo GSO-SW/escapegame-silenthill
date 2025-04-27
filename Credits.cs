@@ -11,10 +11,12 @@ namespace ExitGame
         public static void CreditsAnzeigen()
         {
             Console.Clear();
-            Console.ForegroundColor = ConsoleColor.DarkRed;
-            Thread.Sleep(3000);
 
-            string[] titleArt = new string[]
+            Console.ForegroundColor = ConsoleColor.DarkRed; // Setzt die Schriftfarbe auf Dunkelrot
+
+            Thread.Sleep(3000); // Wartet 3 Sekunden, bevor die Credits angezeigt werden
+
+            string[] titleArt = new string[] // Definiert das ASCII-Art für die Credits Titelseite
             {
                 @"  ███████ ██ ██      ███████ ███    ██ ████████     ██   ██ ██ ██      ██       ",
                 @"  ██      ██ ██      ██      ████   ██    ██        ██   ██ ██ ██      ██       ",
@@ -139,25 +141,33 @@ namespace ExitGame
                 @"                                                                                ",
             };
 
-            foreach (string line in titleArt)
+            foreach (string line in titleArt) // Gibt die ASCII-Art Zeile für Zeile aus
             {
-                Console.WriteLine(line);
+                Console.WriteLine(line); // Gibt jede Zeile der ASCII-Art aus
                 Thread.Sleep(500);
             }
 
             Console.Clear();
-            Console.ForegroundColor = ConsoleColor.White;
+
+            Console.ForegroundColor = ConsoleColor.White; // Setzt die Schriftfarbe auf Weiß
+
             Console.WriteLine("\n\n\n\n\n\n\n\n\n\n                                                                                ");
             Console.WriteLine("                             THANK YOU FOR PLAYING                              ");
+
             Thread.Sleep(3000);
-            Console.ForegroundColor = ConsoleColor.DarkRed;
+
+            Console.ForegroundColor = ConsoleColor.DarkRed; // Setzt die Schriftfarbe auf Dunkelrot
+
             Console.WriteLine("                                                                                ");
             Console.WriteLine("                       THE NIGHTMARE IS NOT OVER YET...                         ");
+
             Thread.Sleep(5000);
-            Console.ResetColor();
+
+            Console.ResetColor(); // Schriftfarbe wird zurückgesetzt
+
             Console.Clear();
 
-            Program.Main();
+            Program.Main(); //Startet das Spiel wieder von Anfang an
         }
     }
 }
