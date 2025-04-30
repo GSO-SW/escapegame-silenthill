@@ -16,31 +16,31 @@ namespace ExitGame
         {
             Console.Clear();
             Console.WriteLine("Die Reifen deines Wagens sind hin.");
-            Thread.Sleep(5000);
+            Thread.Sleep(3000);
             Console.WriteLine("\nMit letzter Kraft hast du es zu einer verlassenen Werkstatt geschafft.");
-            Thread.Sleep(5000);
+            Thread.Sleep(3000);
             Console.WriteLine("\nRost nagt am Metall.");
-            Thread.Sleep(5000);
+            Thread.Sleep(3000);
             Console.WriteLine("\nStille liegt in der Luft.");
-            Thread.Sleep(5000);
+            Thread.Sleep(3000);
             Console.WriteLine("\nDoch der Nebel draußen wird dichter und bedrohlicher.");
-            Thread.Sleep(5000);
+            Thread.Sleep(3000);
             Console.WriteLine("\nDu musst Ersatzreifen finden und zwar schnell.");
-            Thread.Sleep(5000);
+            Thread.Sleep(3000);
 
             Console.Clear();
             Console.WriteLine("Du stehst inmitten der Werkstatt.");
-            Thread.Sleep(4000);
+            Thread.Sleep(3000);
             Console.WriteLine("\nDer Geruch von altem Öl und Gummi steigt dir in die Nase.");
-            Thread.Sleep(4000);
+            Thread.Sleep(3000);
             Console.WriteLine("\nWerkzeuge liegen verstreut.");
-            Thread.Sleep(4000);
+            Thread.Sleep(3000);
             Console.WriteLine("\nScheinbar wahllos.");
-            Thread.Sleep(4000);
+            Thread.Sleep(3000);
             Console.WriteLine("\nDu suchst den Raum ab.");
-            Thread.Sleep(4000);
+            Thread.Sleep(3000);
             Console.WriteLine("\nDoch Reifen sind nirgends zu sehen.");
-            Thread.Sleep(7000);
+            Thread.Sleep(3000);
             Console.Clear();
 
             // Räume werden erstellt mit Name, Nummer, begehbar, Charakter anwesend?, Item vorhanden?
@@ -96,13 +96,13 @@ namespace ExitGame
                     while (true)
                     {
                         Console.WriteLine("\nStaub liegt wie ein Leichentuch über den Möbeln.");
-                        Thread.Sleep(5000);
+                        Thread.Sleep(3000);
                         Console.WriteLine("\nIn einem der Regale entdeckst du ein Notizbuch.");
-                        Thread.Sleep(5000);
+                        Thread.Sleep(3000);
                         Console.WriteLine("\nEine einzelne Seite ist beschrieben: „YPMADIR“.");
-                        Thread.Sleep(5000);
+                        Thread.Sleep(3000);
                         Console.WriteLine("\nDarunter steht: „Die Antwort liegt in der Form der Macht.“");
-                        Thread.Sleep(5000);
+                        Thread.Sleep(3000);
                         Console.WriteLine("\n\nGib die Lösung ein:");
                         string eingabe = Console.ReadLine().ToUpper();
 
@@ -110,18 +110,18 @@ namespace ExitGame
                         {
                             Console.Clear();
                             Console.WriteLine("Der Schlüssel den du gefunden hast glänzt matt in deiner Hand.");
-                            Thread.Sleep(5000);
+                            Thread.Sleep(3000);
                             Console.WriteLine("\nDie Lösung des Anagramms „YPMADIR“ hat den Mechanismus ausgelöst.");
-                            Thread.Sleep(5000);
+                            Thread.Sleep(3000);
                             Console.WriteLine("\nEr muss zum Lager passen.");
-                            Thread.Sleep(8000);     
+                            Thread.Sleep(3000);     
                             Console.Clear();
                             return true;
                         }
                         else
                         {
                             Console.WriteLine("\nFalsch. Versuche es erneut...");
-                            Thread.Sleep(1000);
+                            Thread.Sleep(1500);
                             return false;
                         }
                     }
@@ -132,15 +132,15 @@ namespace ExitGame
                 if (aktuellerRaum == toilette)
                 {
                     Console.WriteLine("\n\nDie Wände sind über und über mit seltsamen Malereien bedeckt.");
-                    Thread.Sleep(5000);
+                    Thread.Sleep(3000);
                     Console.WriteLine("\nÜberall scheinen stilisierte Pyramiden in verschiedenen Größen und Formen aufgemalt zu sein.");
-                    Thread.Sleep(5000);
+                    Thread.Sleep(3000);
                     Console.WriteLine("\nEin verletzter obdachloser alter Mann kauert in einer Ecke und flüstert mit heiserer Stimme.");
-                    Thread.Sleep(5000);
+                    Thread.Sleep(3000);
                     Console.WriteLine("\n„Die Reifen... sie sind... im Lager...“");
-                    Thread.Sleep(5000);
+                    Thread.Sleep(3000);
                     Console.WriteLine("\nDie Pyramidenmuster scheinen sich in dein Gedächtnis einzuprägen.");
-                    Thread.Sleep(5000);
+                    Thread.Sleep(3000);
                 }
 
                 // Wenn man im Lager ist und Schlüssel hat
@@ -148,55 +148,55 @@ namespace ExitGame
                 {
                     Console.Clear();
                     Console.WriteLine("Das Tor quietscht widerwillig als du den Schlüssel ins Schloss steckst und es aufschließt.");
-                    Thread.Sleep(5000);
+                    Thread.Sleep(3000);
                     Console.WriteLine("\nZwischen hohen verstaubten Regalen entdeckst du endlich die gesuchten Reifen.");
-                    Thread.Sleep(5000);
+                    Thread.Sleep(3000);
                     Console.WriteLine("\nErleichterung macht sich in dir breit.");
-                    Thread.Sleep(5000);
+                    Thread.Sleep(3000);
                     Console.WriteLine("\nDu packst sie.");
-                    Thread.Sleep(5000);
+                    Thread.Sleep(3000);
 
                     Console.Clear();
                     Console.WriteLine("Die neuen Reifen sind montiert.");
-                    Thread.Sleep(5000);
+                    Thread.Sleep(3000);
                     Console.WriteLine("\nDu steigst ins Auto.");
-                    Thread.Sleep(5000);
+                    Thread.Sleep(3000);
                     Console.WriteLine("\nDoch gerade als du den Motor starten willst schlägt etwas Hartes gegen die Windschutzscheibe.");
-                    Thread.Sleep(5000);
+                    Thread.Sleep(3000);
                     Console.WriteLine("\nDu zuckst zusammen und fährst mit der Hand über die Scheibe.");
-                    Thread.Sleep(5000);
+                    Thread.Sleep(3000);
                     Console.WriteLine("\nDraußen ist niemand.");
-                    Thread.Sleep(5000);
+                    Thread.Sleep(3000);
                     Console.WriteLine("\nNur eine einzelne blutige Handspur zieht sich über das Glas.");
-                    Thread.Sleep(5000);
+                    Thread.Sleep(3000);
                     Console.WriteLine("\nDu startest den Motor.");
-                    Thread.Sleep(5000);
+                    Thread.Sleep(3000);
                     Console.WriteLine("\nEin ungutes Gefühl beschleicht dich.");
-                    Thread.Sleep(5000);
+                    Thread.Sleep(3000);
 
                     levelBeendet = true;
 
                     Console.Clear();
                     Console.WriteLine("Die Fahrt durch den dichten grauen Schleier ist beunruhigend still.");
-                    Thread.Sleep(5000);
+                    Thread.Sleep(3000);
                     Console.WriteLine("\nPlötzlich verstummt das Radio.");
-                    Thread.Sleep(5000);
+                    Thread.Sleep(3000);
                     Console.WriteLine("\nNur ein unheilvolles Rauschen ist zu hören.");
-                    Thread.Sleep(5000);
+                    Thread.Sleep(3000);
                     Console.WriteLine("\nDann wie aus dem Nichts eine verzerrte Stimme.");
-                    Thread.Sleep(5000);
+                    Thread.Sleep(3000);
                     Console.WriteLine("\n„Sie... sie war zuletzt... in der alten Schule...“");
-                    Thread.Sleep(5000);
+                    Thread.Sleep(3000);
                     Console.WriteLine("\nDeine Schwester.");
-                    Thread.Sleep(5000);
+                    Thread.Sleep(3000);
                     Console.WriteLine("\nSeit Tagen schon ist sie verschwunden.");
-                    Thread.Sleep(5000);
+                    Thread.Sleep(3000);
                     Console.WriteLine("\nEine vage Hoffnung keimt auf.");
-                    Thread.Sleep(5000);
+                    Thread.Sleep(3000);
                     Console.WriteLine("\n„Vielleicht... vielleicht ist sie wirklich dort?“");
-                    Thread.Sleep(5000);
+                    Thread.Sleep(3000);
                     Console.WriteLine("\nDu lenkst den Wagen in die Richtung die die Stimme angedeutet hat.");
-                    Thread.Sleep(5000);
+                    Thread.Sleep(3000);
 
                     // Ladeanimation fürs nächste Level
                     Console.Clear();
@@ -259,15 +259,15 @@ namespace ExitGame
                     {
                         Console.Clear();
                         Console.WriteLine("Die schwere Tür zum Lager ist verschlossen.");
-                        Thread.Sleep(5000);
+                        Thread.Sleep(3000);
                         Console.WriteLine("\nEin massives Schlossriegel schiebt sich vor.");
-                        Thread.Sleep(5000);
+                        Thread.Sleep(3000);
                         Console.WriteLine("\nDu rüttelst daran.");
-                        Thread.Sleep(5000);
+                        Thread.Sleep(3000);
                         Console.WriteLine("\nAber es bewegt sich nicht.");
-                        Thread.Sleep(5000);
+                        Thread.Sleep(3000);
                         Console.WriteLine("\nIch brauche wohl einen Schlüssel dafür.");
-                        Thread.Sleep(5000);
+                        Thread.Sleep(3000);
                         Console.Clear();
                         continue;
                     }
@@ -281,7 +281,7 @@ namespace ExitGame
                     else
                     {
                         Console.WriteLine("\nUngültige Auswahl! Versuche es erneut.");
-                        Thread.Sleep(3000);
+                        Thread.Sleep(1500);
                         Console.Clear();
                     }
                 }
@@ -309,6 +309,11 @@ namespace ExitGame
         // Innere Klasse "Raum" definiert Struktur eines Raumes
         class Raum
         {
+
+            // get = Damit kann man den aktuellen Wert abfragen (lesen)
+
+            // set = Damit kann man einen neuen Wert zuweisen (schreiben)
+
             public string Name { get; set; } // Raumname
             public int Nr { get; set; } // Raum-Nummer zur Auswahl
             public bool Access { get; set; } // Ist der Raum betretbar?
@@ -316,6 +321,7 @@ namespace ExitGame
             public bool ItemVorhanden { get; set; } // Ist ein Item im Raum?
             public List<Raum> Zugang { get; set; } // Liste erreichbarer Nachbarräume
 
+            // Erstellt einen neuen Raum mit den angegebenen Werten
             public Raum(string name, int nr, bool access, bool charAnwesend, bool itemVorhanden)
             {
                 Name = name;
