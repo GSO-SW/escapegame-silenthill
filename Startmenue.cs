@@ -18,7 +18,7 @@ namespace ExitGame
 
             Thread.Sleep(3000); // 3 Sekunden Timer
 
-            string[] TitelBild = new string[] // Definiert das ASCII-Art für die Startmenü Titelseite
+            string[] TitelbildMenue = new string[] // Definiert das ASCII-Art für die Startmenü Titelseite
             {
                 @"  ███████ ██ ██      ███████ ███    ██ ████████     ██   ██ ██ ██      ██       ",
                 @"  ██      ██ ██      ██      ████   ██    ██        ██   ██ ██ ██      ██       ",
@@ -38,7 +38,7 @@ namespace ExitGame
                 @"                                   Nico Feil                                    ",
             };
 
-            foreach (string line in TitelBild)
+            foreach (string line in TitelbildMenue)
             {
                 Console.WriteLine(line); // Gibt die ASCII-Art Zeile für Zeile aus
                 Thread.Sleep(120);
@@ -46,9 +46,7 @@ namespace ExitGame
 
             Console.ForegroundColor = ConsoleColor.White; // Setzt die Schriftfarbe auf Weiß
 
-            Console.WriteLine("\n                                                                                ");
-            Console.WriteLine("                      Drücke eine Taste, um fortzufahren...                     ");
-            Console.WriteLine("\n                                                                                ");
+            Console.WriteLine("\n\n                      Drücke eine Taste, um fortzufahren...                     \n\n");
 
             Console.ResetColor(); // Schriftfarbe wird zurückgesetzt
 
@@ -91,7 +89,7 @@ namespace ExitGame
                         break;
                     default:
                         Console.WriteLine("Ungültige Auswahl. Bitte versuchen Sie es erneut.");
-                        Thread.Sleep(3000);
+                        Thread.Sleep(1500);
                         Console.Clear();
                         break;
                 }

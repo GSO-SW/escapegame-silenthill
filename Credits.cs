@@ -16,7 +16,7 @@ namespace ExitGame
 
             Thread.Sleep(3000); // Wartet 3 Sekunden, bevor die Credits angezeigt werden
 
-            string[] titleArt = new string[] // Definiert das ASCII-Art für die Credits Titelseite
+            string[] TitelbildCredits = new string[] // Definiert das ASCII-Art für die Credits Titelseite
             {
                 @"  ███████ ██ ██      ███████ ███    ██ ████████     ██   ██ ██ ██      ██       ",
                 @"  ██      ██ ██      ██      ████   ██    ██        ██   ██ ██ ██      ██       ",
@@ -141,25 +141,23 @@ namespace ExitGame
                 @"                                                                                ",
             };
 
-            foreach (string line in titleArt) // Gibt die ASCII-Art Zeile für Zeile aus
+            foreach (string line in TitelbildCredits) // Gibt die ASCII-Art Zeile für Zeile aus
             {
                 Console.WriteLine(line); // Gibt jede Zeile der ASCII-Art aus
-                Thread.Sleep(500);
+                Thread.Sleep(400);
             }
 
             Console.Clear();
 
             Console.ForegroundColor = ConsoleColor.White; // Setzt die Schriftfarbe auf Weiß
 
-            Console.WriteLine("\n\n\n\n\n\n\n\n\n\n                                                                                ");
-            Console.WriteLine("                             THANK YOU FOR PLAYING                              ");
+            Console.WriteLine("\n\n\n\n\n\n\n\n\n\n\n                             THANK YOU FOR PLAYING                              ");
 
             Thread.Sleep(3000);
 
             Console.ForegroundColor = ConsoleColor.DarkRed; // Setzt die Schriftfarbe auf Dunkelrot
 
-            Console.WriteLine("                                                                                ");
-            Console.WriteLine("                       THE NIGHTMARE IS NOT OVER YET...                         ");
+            Console.WriteLine("\n                       THE NIGHTMARE IS NOT OVER YET...                         ");
 
             Thread.Sleep(5000);
 
